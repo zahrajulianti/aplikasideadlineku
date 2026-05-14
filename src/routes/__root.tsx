@@ -71,6 +71,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Aplikasi pastel modern untuk mengelola tugas kuliah, deadline, dan produktivitas harian.",
       },
       { property: "og:type", content: "website" },
+      { name: "twitter:title", content: "DeadlineKu — Manajemen Tugas Mahasiswa" },
+      { name: "description", content: "Deadline Buddy is a modern web app for students to manage academic tasks and deadlines." },
+      { property: "og:description", content: "Deadline Buddy is a modern web app for students to manage academic tasks and deadlines." },
+      { name: "twitter:description", content: "Deadline Buddy is a modern web app for students to manage academic tasks and deadlines." },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
