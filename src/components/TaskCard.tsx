@@ -15,17 +15,26 @@ interface Props {
 }
 
 const toneRing: Record<string, string> = {
-  ok: "",
+  ok: "ring-1 ring-pastel-blue/50 bg-pastel-blue/10",
   soon: "ring-1 ring-pastel-orange/70 bg-pastel-orange/15",
-  urgent: "ring-1 ring-pastel-orange/80 bg-pastel-orange/25",
-  late: "ring-1 ring-pastel-red/80 bg-pastel-red/25",
+  urgent:
+    "ring-2 ring-pastel-red/70 bg-gradient-to-br from-pastel-orange/30 to-pastel-red/25 shadow-glow",
+  late: "ring-1 ring-pastel-red/60 bg-pastel-red/15",
 };
 
 const toneBadge: Record<string, string> = {
-  ok: "bg-muted text-muted-foreground",
+  ok: "bg-pastel-blue text-pastel-blue-foreground",
   soon: "bg-pastel-orange text-pastel-orange-foreground",
-  urgent: "bg-pastel-orange text-pastel-orange-foreground",
-  late: "bg-pastel-red text-pastel-red-foreground",
+  urgent:
+    "bg-gradient-to-r from-pastel-orange to-pastel-red text-pastel-red-foreground shadow-soft animate-pulse",
+  late: "bg-pastel-red/80 text-pastel-red-foreground",
+};
+
+const toneDot: Record<string, string> = {
+  ok: "bg-pastel-blue-foreground/60",
+  soon: "bg-pastel-orange-foreground",
+  urgent: "bg-pastel-red-foreground",
+  late: "bg-pastel-red-foreground/80",
 };
 
 export function TaskCard({ task, onChanged, onEdit }: Props) {
@@ -62,7 +71,7 @@ export function TaskCard({ task, onChanged, onEdit }: Props) {
 
   return (
     <article
-      className={`card-soft group relative p-5 transition hover:-translate-y-0.5 hover:shadow-glow animate-in-up ${
+      className={`card-soft group relative p-5 transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-glow animate-in-up ${
         task.completed ? "opacity-60" : toneRing[meta.tone]
       }`}
     >
@@ -123,8 +132,9 @@ export function TaskCard({ task, onChanged, onEdit }: Props) {
 
         <div className="flex flex-col items-end gap-2">
           <span
-            className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${toneBadge[meta.tone]}`}
+            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold transition-colors duration-300 ${toneBadge[meta.tone]}`}
           >
+            <span className={`h-1.5 w-1.5 rounded-full ${toneDot[meta.tone]}`} />
             {meta.label}
           </span>
           <div className="flex gap-1 opacity-0 transition group-hover:opacity-100">
