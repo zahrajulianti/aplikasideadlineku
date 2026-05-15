@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { lovable } from "@/integrations/lovable/index";
 import { useAuth } from "@/hooks/use-auth";
-import { AuthShell, Field } from "./login";
+import { AuthShell, Field, GoogleIcon } from "./login";
 
 export const Route = createFileRoute("/register")({
   component: RegisterPage,
@@ -16,6 +17,21 @@ function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
+
+  const onGoogle = async () => {
+    setGoogleLoading(true);
+    const result = await lovable.auth.signInWithOAuth("google", {
+      redirect_uri: window.location.origin + "/dashboard",
+    });
+    if (result.error) {
+      setGoogleLoading(false);
+      toast.error("Google sign-up gagal", { description: result.error.message });
+      return;
+    }
+    if (result.redirected) return;
+    nav({ to: "/dashboard" });
+  };
 
   useEffect(() => {
     if (user) nav({ to: "/dashboard" });
@@ -46,6 +62,20 @@ function RegisterPage() {
 
   return (
     <AuthShell title="Buat akun baru" subtitle="Mulai atur deadline dan jaga produktivitasmu.">
+      <button
+        onClick={onGoogle}
+        disabled={googleLoading}
+        type="button"
+        className="flex w-full items-center justify-center gap-3 rounded-2xl border border-border bg-background/60 py-3 text-sm font-semibold transition hover:bg-accent disabled:opacity-60"
+      >
+        {googleLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <GoogleIcon />}
+        Daftar dengan Google
+      </button>
+      <div className="my-5 flex items-center gap-3 text-xs text-muted-foreground">
+        <div className="h-px flex-1 bg-border" />
+        atau
+        <div className="h-px flex-1 bg-border" />
+      </div>
       <form onSubmit={onSubmit} className="space-y-4">
         <Field label="Email" type="email" value={email} onChange={setEmail} required />
         <Field
