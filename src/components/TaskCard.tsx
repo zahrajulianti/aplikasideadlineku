@@ -71,7 +71,7 @@ export function TaskCard({ task, onChanged, onEdit }: Props) {
 
   return (
     <article
-      className={`card-soft group relative p-5 transition hover:-translate-y-0.5 hover:shadow-glow animate-in-up ${
+      className={`card-soft group relative p-5 transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-glow animate-in-up ${
         task.completed ? "opacity-60" : toneRing[meta.tone]
       }`}
     >
