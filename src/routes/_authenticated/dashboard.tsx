@@ -76,10 +76,10 @@ function Dashboard() {
             })}
           </p>
           <h1 className="mt-1 text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Halo, {user?.email?.split("@")[0]} 👋
+            Halo, {user?.email?.split("@")[0]} 🙌🏻
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Yuk tuntaskan tugas hari ini, satu demi satu.
+            Yuk tuntaskan tugas hari ini, satu demi satu ☘️
           </p>
         </div>
         <button
