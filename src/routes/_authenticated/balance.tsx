@@ -79,14 +79,27 @@ function BalancePage() {
           </div>
         </div>
 
-        <div className="card-soft overflow-hidden p-6 animate-in-up">
-          <div className="grid h-12 w-12 place-items-center rounded-2xl bg-pastel-orange text-pastel-orange-foreground text-2xl">
-            ☕
+        <div className="card-soft relative overflow-hidden p-6 animate-in-up bg-gradient-to-br from-pastel-lavender/50 via-pastel-blue/30 to-pastel-mint/40">
+          {/* floating ambient decorations */}
+          <span aria-hidden className="pointer-events-none absolute -top-3 -right-2 text-3xl opacity-70 animate-[float_6s_ease-in-out_infinite]">
+            🌙
+          </span>
+          <span aria-hidden className="pointer-events-none absolute top-10 right-10 text-lg opacity-80 animate-[twinkle_2.8s_ease-in-out_infinite]">
+            ✨
+          </span>
+          <span aria-hidden className="pointer-events-none absolute bottom-4 right-6 text-xl opacity-70 animate-[float_7s_ease-in-out_infinite_reverse]">
+            ☁️
+          </span>
+
+          <div className="relative grid h-14 w-14 place-items-center rounded-3xl bg-white/70 text-3xl shadow-soft backdrop-blur-sm animate-[breathe_4s_ease-in-out_infinite]">
+            🌷
           </div>
-          <h2 className="mt-4 text-lg font-semibold">Jangan lupa istirahat</h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Kerja keras itu bagus, tapi otak juga butuh jeda. Ambil napas, regangkan badan,
-            lalu lanjut lagi 💪
+          <h2 className="relative mt-5 text-lg font-semibold leading-snug tracking-tight text-foreground">
+            Hei, jangan terlalu keras pada diri sendiri 🌷
+          </h2>
+          <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground">
+            Tugas memang banyak, tapi kamu juga manusia yang butuh jeda. Minum air,
+            istirahat sebentar, lalu lanjut lagi ya. Kamu hebat sudah sampai sejauh ini 🤍
           </p>
         </div>
       </section>
