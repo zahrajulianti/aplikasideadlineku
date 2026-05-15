@@ -79,13 +79,17 @@ export function TaskCard({ task, onChanged, onEdit }: Props) {
         <button
           onClick={toggle}
           aria-label="Toggle selesai"
-          className={`mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-lg border transition ${
+          className={`mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg border-2 shadow-sm transition-all duration-300 ease-out hover:scale-105 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pastel-blue/60 ${
             task.completed
-              ? "border-pastel-mint bg-pastel-mint text-pastel-mint-foreground"
-              : "border-border hover:border-primary"
+              ? "border-pastel-blue bg-pastel-blue text-white shadow-pastel-blue/30"
+              : "border-slate-300/80 bg-white hover:border-pastel-blue/70 hover:bg-pastel-blue/5 dark:border-slate-500/60 dark:bg-slate-100/95"
           }`}
         >
-          {task.completed && <Check className="h-3.5 w-3.5" />}
+          <Check
+            className={`h-4 w-4 stroke-[3] text-white transition-all duration-300 ${
+              task.completed ? "scale-100 opacity-100" : "scale-50 opacity-0"
+            }`}
+          />
         </button>
 
         <div className="min-w-0 flex-1">
