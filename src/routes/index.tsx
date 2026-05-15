@@ -47,8 +47,8 @@ function Landing() {
           </span>
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
-          DeadlineKu menggabungkan manajemen tugas, pengingat visual, dan
-          keseimbangan belajar — dalam satu tampilan pastel yang nyaman dilihat.
+          Semua tugas, deadline, dan progress belajarmu tersusun rapi dalam
+          satu tempat yang nyaman dilihat 📚
         </p>
         <div className="mt-8 flex justify-center gap-3">
           <Link
