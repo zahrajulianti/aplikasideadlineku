@@ -15,17 +15,26 @@ interface Props {
 }
 
 const toneRing: Record<string, string> = {
-  ok: "",
+  ok: "ring-1 ring-pastel-blue/50 bg-pastel-blue/10",
   soon: "ring-1 ring-pastel-orange/70 bg-pastel-orange/15",
-  urgent: "ring-1 ring-pastel-orange/80 bg-pastel-orange/25",
-  late: "ring-1 ring-pastel-red/80 bg-pastel-red/25",
+  urgent:
+    "ring-2 ring-pastel-red/70 bg-gradient-to-br from-pastel-orange/30 to-pastel-red/25 shadow-glow",
+  late: "ring-1 ring-pastel-red/60 bg-pastel-red/15",
 };
 
 const toneBadge: Record<string, string> = {
-  ok: "bg-muted text-muted-foreground",
+  ok: "bg-pastel-blue text-pastel-blue-foreground",
   soon: "bg-pastel-orange text-pastel-orange-foreground",
-  urgent: "bg-pastel-orange text-pastel-orange-foreground",
-  late: "bg-pastel-red text-pastel-red-foreground",
+  urgent:
+    "bg-gradient-to-r from-pastel-orange to-pastel-red text-pastel-red-foreground shadow-soft animate-pulse",
+  late: "bg-pastel-red/80 text-pastel-red-foreground",
+};
+
+const toneDot: Record<string, string> = {
+  ok: "bg-pastel-blue-foreground/60",
+  soon: "bg-pastel-orange-foreground",
+  urgent: "bg-pastel-red-foreground",
+  late: "bg-pastel-red-foreground/80",
 };
 
 export function TaskCard({ task, onChanged, onEdit }: Props) {
